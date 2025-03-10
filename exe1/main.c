@@ -41,7 +41,6 @@ int main() {
     while (true) {
 
         if (flag_f_r) {
-            flag_f_r = 0;
 
             if (timer_active){
                 cancel_repeating_timer(&timer_0);
@@ -51,12 +50,14 @@ int main() {
                  timer_active = 1;
             }
 
+            flag_f_r = 0;
+
 
         }  
 
         if(g_timer){
-            g_timer = 0;
             gpio_put(LED_PIN_R, !gpio_get(LED_PIN_R));
+            g_timer = 0;
         }
     }
 }
