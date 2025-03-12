@@ -34,7 +34,7 @@ int main() {
     gpio_set_irq_enabled_with_callback(BTN_PIN_R, GPIO_IRQ_EDGE_FALL, true,
                                        &btn_callback);
 
-    volatile int timer_active = 0;
+    int timer_active = 0;
     int timer_0_hz = 500;
     repeating_timer_t timer_0;
 

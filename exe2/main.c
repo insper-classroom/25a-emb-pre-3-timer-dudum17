@@ -39,8 +39,8 @@ void btn_callback(uint gpio, uint32_t events) {
 
 int main() {
 
-    volatile int timer_active_1= 0;
-    volatile int timer_active_2 = 0;
+    int timer_active_1= 0;
+    int timer_active_2 = 0;
 
     gpio_init(LED_PIN_R);
     gpio_set_dir(LED_PIN_R, GPIO_OUT);

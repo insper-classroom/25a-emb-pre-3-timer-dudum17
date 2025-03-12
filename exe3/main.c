@@ -4,7 +4,7 @@
 
 const int BTN_PIN_R = 28;
 const int LED_PIN_R = 4;
-int btn_release = 0;
+volatile int btn_release = 0;
 uint64_t press_time = 0; 
 
 
