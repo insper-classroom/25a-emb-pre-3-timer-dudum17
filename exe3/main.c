@@ -4,13 +4,14 @@
 
 const int BTN_PIN_R = 28;
 const int LED_PIN_R = 4;
-volatile int btn_release = 0;
-volatile uint64_t press_time = 0; 
-volatile int led_aceso = 0;
+int btn_release = 0;
+uint64_t press_time = 0; 
+int led_aceso = 0;
 
 void btn_callback(uint gpio, uint32_t events) {
+    uint64_t now = time_us_64();
     if (events == 0x4) { // fall edge
-        press_time = time_us_64();
+        press_time = now;
  } else if (events == 0x8) { // rise edge
       uint64_t rise_time = time_us_64();
       if((rise_time - press_time) > 500000){
@@ -43,5 +44,6 @@ int main() {
             }
             btn_release = 0;
         }
+        sleep_ms(10);
     }
 }

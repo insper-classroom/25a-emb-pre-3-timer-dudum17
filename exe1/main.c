@@ -45,14 +45,13 @@ int main() {
             if (timer_active){
                 cancel_repeating_timer(&timer_0);
                 timer_active = 0;
+                gpio_put(LED_PIN_R, 0);
             } else {
                  add_repeating_timer_ms(timer_0_hz, timer_0_callback, NULL, &timer_0);
                  timer_active = 1;
             }
 
             flag_f_r = 0;
-
-
         }  
 
         if(g_timer){

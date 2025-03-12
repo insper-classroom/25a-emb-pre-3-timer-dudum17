@@ -71,6 +71,7 @@ int main() {
             if (timer_active_1){
                 cancel_repeating_timer(&timer_1);
                 timer_active_1 = 0;
+                gpio_put(LED_PIN_R, 0);
             } else {
                  add_repeating_timer_ms(timer_1_hz, timer_1_callback, NULL, &timer_1);
                  timer_active_1 = 1;
@@ -82,8 +83,11 @@ int main() {
 
             if (timer_active_2) {
                 cancel_repeating_timer(&timer_2); // Para o timer
+                timer_active_2 = 0;
+                gpio_put(LED_PIN_G, 0);
             } else {
-                add_repeating_timer_ms(timer_2_hz, timer_2_callback, NULL, &timer_2); // Inicia o timer
+                add_repeating_timer_ms(timer_2_hz, timer_2_callback, NULL, &timer_2);
+                timer_active_2 = 1 ;
             }
         }
 
