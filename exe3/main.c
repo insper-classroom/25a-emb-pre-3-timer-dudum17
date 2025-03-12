@@ -5,7 +5,7 @@
 const int BTN_PIN_R = 28;
 const int LED_PIN_R = 4;
 volatile int btn_release = 0;
-uint64_t press_time = 0; 
+volatile uint64_t press_time = 0; 
 
 
 void btn_callback(uint gpio, uint32_t events) {
