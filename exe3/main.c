@@ -6,7 +6,7 @@ const int BTN_PIN_R = 28;
 const int LED_PIN_R = 4;
 int btn_release = 0;
 uint64_t press_time = 0; 
-int led_aceso = 0;
+
 
 void btn_callback(uint gpio, uint32_t events) {
     uint64_t now = time_us_64();
@@ -21,6 +21,9 @@ void btn_callback(uint gpio, uint32_t events) {
 }
 
 int main() {
+
+    int led_aceso = 0;
+
     stdio_init_all();
 
     gpio_init(LED_PIN_R);
